@@ -1,0 +1,31 @@
+scalar UUID
+
+type Query {
+    companyList: [Company!]!
+    company(name: String): Company
+    companyCount: Int
+}
+
+
+type Company {
+    id: UUID
+    name: String
+    companyTypeEnum: String
+    employees: [Person!]!
+    branches: [Branch!]!
+}
+
+type Person {
+    id: UUID
+    firstName: String
+    lastName: String
+    dateOfBirth: String
+    email: String
+}
+
+type Branch {
+    id: UUID
+    street: String
+    postCode: String
+    city: String
+}
