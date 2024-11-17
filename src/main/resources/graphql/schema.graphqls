@@ -42,7 +42,7 @@ input CompanyUpdateInput {
 }
 
 type Mutation {
-    create(item: CompanyCreateInput): UUID
-    update(item: CompanyUpdateInput): UUID
+    create(item: CompanyCreateInput!): UUID
+    update(item: CompanyUpdateInput!): UUID
     delete(id: UUID!): Boolean
 }

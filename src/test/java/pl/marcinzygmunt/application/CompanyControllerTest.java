@@ -64,5 +64,4 @@ class CompanyControllerTest {
                 .anyMatch(x -> x.getName().equals("Added Company")));
     }
 
-
 }
