@@ -13,7 +13,9 @@ import java.util.UUID;
 public class Company {
     @Builder.Default
     private final UUID id = UUID.randomUUID();
+    @Setter
     private String name;
+    @Setter
     private CompanyTypeEnum companyTypeEnum;
     @Builder.Default
     private final List<Person> employees = new ArrayList<>();

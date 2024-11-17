@@ -29,3 +29,20 @@ type Branch {
     postCode: String
     city: String
 }
+
+input CompanyCreateInput {
+    name: String
+    type: String
+}
+
+input CompanyUpdateInput {
+    id: UUID
+    name: String
+    type: String
+}
+
+type Mutation {
+    create(item: CompanyCreateInput): UUID
+    update(item: CompanyUpdateInput): UUID
+    delete(id: UUID!): Boolean
+}

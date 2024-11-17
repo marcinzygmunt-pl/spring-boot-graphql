@@ -4,10 +4,7 @@ import org.springframework.stereotype.Repository;
 import pl.marcinzygmunt.domain.Company;
 import pl.marcinzygmunt.domain.CompanyTypeEnum;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Repository
 public class InMemoryCompanyRepository implements CompanyRepository{
@@ -15,8 +12,8 @@ public class InMemoryCompanyRepository implements CompanyRepository{
     private final Map<UUID, Company> companyRepository = new HashMap<>();
 
     @Override
-    public Company findById(UUID companyId) {
-        return companyRepository.get(companyId);
+    public Optional<Company> findById(UUID companyId) {
+        return Optional.of(companyRepository.get(companyId));
     }
 
     @Override
@@ -26,11 +23,12 @@ public class InMemoryCompanyRepository implements CompanyRepository{
 
     @Override
     public Company save(Company company) {
-        return companyRepository.put(company.getId(),company);
+        companyRepository.put(company.getId(),company);
+        return company;
     }
 
     @Override
-    public void delete(Company company) {
-        companyRepository.remove(company.getId());
+    public void delete(UUID companyId) {
+        companyRepository.remove(companyId);
     }
 }

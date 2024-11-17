@@ -4,15 +4,16 @@ import org.springframework.stereotype.Repository;
 import pl.marcinzygmunt.domain.Company;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface CompanyRepository {
-    Company findById(UUID companyId);
+    Optional<Company> findById(UUID companyId);
 
     List<Company> getAll();
 
     Company save(Company company);
 
-    void delete(Company company);
+    void delete(UUID companyId);
 
 }

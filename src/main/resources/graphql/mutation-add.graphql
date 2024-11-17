@@ -1,0 +1,9 @@
+mutation
+    {
+        create(
+            item: {
+                name: "Added Company",
+                type: "PLANT"
+                }
+            )
+    }
